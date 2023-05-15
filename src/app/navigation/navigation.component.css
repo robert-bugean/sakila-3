@@ -1,0 +1,24 @@
+.container {
+  max-width: fit-content;
+  display: flex;
+
+  background-color: #424242;
+  border: solid 2px #c72a68;
+  border-radius: 4px;
+  margin: 10px;
+  /* z-index: 2;
+  position: relative; */
+}
+
+.title {
+  color: white;
+  margin: 0;
+  padding: 10px;
+  padding-top: 11px;
+}
+
+button {
+  vertical-align: top;
+  margin: 10px;
+  margin-left: 0;
+}

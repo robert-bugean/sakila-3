@@ -1,0 +1,55 @@
+/* container */
+
+.container {
+  max-width: fit-content;
+  display: flex;
+  margin: 10px;
+}
+
+.top-input-container {
+  margin: 10px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.input-container {
+  margin: 10px;
+  margin-bottom: 0;
+}
+
+.button-container{
+  display: flex;
+  justify-content: center;
+}
+
+/* title */
+
+.title-container {
+  margin: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+mat-card-title {
+  color: #e9e9e9;
+  text-align: center;
+  font-size: medium;
+}
+
+/* input */
+
+mat-form-field {
+  width: 100%;
+}
+
+/* buttons */
+
+.login-button {
+  margin: 10px;
+  width: 50%;
+}
+
+.icon-color {
+  color: #e9e9e9;
+  /* color: #969696; */
+}
