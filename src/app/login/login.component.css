@@ -1,9 +1,11 @@
 /* container */
 
 .container {
-  max-width: fit-content;
   display: flex;
-  margin: 10px;
+  
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
 .top-input-container {
@@ -51,5 +53,4 @@ mat-form-field {
 
 .icon-color {
   color: #e9e9e9;
-  /* color: #969696; */
 }
