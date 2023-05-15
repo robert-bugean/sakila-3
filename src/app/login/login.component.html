@@ -2,36 +2,45 @@
   <mat-card>
     <!-- title -->
     <div class="title-container">
-      <mat-card-title>Login page</mat-card-title>
+      <mat-card-title>Sakila manager</mat-card-title>
     </div>
 
-    <!-- email -->
-    <div class="top-input-container">
-      <mat-form-field subscriptSizing="dynamic">
-        <mat-label>E-mail</mat-label>
-        <input matInput [(ngModel)]="email">
+    <form [formGroup]="loginForm">
+      <!-- email -->
+      <div class="top-input-container">
+        <mat-form-field subscriptSizing="dynamic">
+          <mat-label>E-mail</mat-label>
+          <input matInput name="email" formControlName="email">
 
-        <button class="icon-color" matSuffix mat-icon-button aria-label="Clear" 
-          *ngIf="email" (click)="email=''">
-          <mat-icon>close</mat-icon>
-        </button>
-      </mat-form-field>
-    </div>
+          <button class="icon-color" matSuffix mat-icon-button aria-label="Clear" type="button"
+            *ngIf="loginForm.get('email')?.value" (click)="loginForm.get('email')?.reset()">
+            <mat-icon>close</mat-icon>
+          </button>
 
-    <!-- password -->
-    <div class="input-container">
-      <mat-form-field subscriptSizing="dynamic">
-        <mat-label>Password</mat-label>
-        <input matInput [type]="hide ? 'password' : 'text'">
-        
-        <button class="icon-color" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-        </button>
-      </mat-form-field>
-    </div>
+          <mat-error *ngIf="loginForm.get('email')?.hasError('required')">This field cannot be empty!</mat-error>
+          <mat-error *ngIf="loginForm.get('email')?.hasError('email')">Invalid e-mail!</mat-error>
+        </mat-form-field>
+      </div>
+
+      <!-- password -->
+      <div class="input-container">
+        <mat-form-field subscriptSizing="dynamic">
+          <mat-label>Password</mat-label>
+          <input matInput name="password" formControlName="password"
+            [type]="hide ? 'password' : 'text'">
+          
+          <button class="icon-color" mat-icon-button matSuffix type="button"
+            (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+
+          <mat-error *ngIf="loginForm.get('password')?.hasError('required')">This field cannot be empty!</mat-error>
+        </mat-form-field>
+      </div>
+    </form>
 
     <div class="button-container">
-      <button class="login-button" mat-flat-button color="primary">Continue</button>
+      <button class="login-button" mat-flat-button color="primary" type="submit" [disabled]="!loginForm.valid">Log-in</button>
     </div>
   </mat-card>
 </div>
